@@ -1,0 +1,63 @@
+"""
+System Name: Vasyworks
+Project Name: vacancy_api
+Encoding: UTF-8
+Copyright (C) 2020 Yasuhiro Yamamoto
+"""
+from django.urls import include, path
+from .views import *
+
+urlpatterns = [
+    path('allow_types/<str:key>', AllowTypeViewSet.as_view({'get': 'list'}), name='master_allow_types'),
+    path('areas/<str:key>/<int:city_id>', AreaViewSet.as_view({'get': 'list'}), name='master_areas'),
+    path('arrival_types/<str:key>', ArrivalTypeViewSet.as_view({'get': 'list'}), name='master_arrival_types'),
+    path('balcony_types/<str:key>', BalconyTypeViewSet.as_view({'get': 'list'}), name='master_balcony_types'),
+    path('bath_types/<str:key>', BathTypeViewSet.as_view({'get': 'list'}), name='master_bath_types'),
+    path('bike_parking_types/<str:key>', BikeParkingTypeViewSet.as_view({'get': 'list'}), name='master_bike_parking_types'),
+    path('building_types/<str:key>', BuildingTypeViewSet.as_view({'get': 'list'}), name='master_building_types'),
+    path('cities/<str:key>/<int:pref_id>', CityViewSet.as_view({'get': 'list'}), name='master_cities'),
+    path('cleaning_types/<str:key>', CleaningTypeViewSet.as_view({'get': 'list'}), name='master_cleaning_types'),
+    path('condo_fees_types/<str:key>', CondoFeesTypeViewSet.as_view({'get': 'list'}), name='master_condo_fees_types'),
+    path('deposit_notations/<str:key>', DepositNotationViewSet.as_view({'get': 'list'}), name='master_deposit_notations'),
+    path('deposit_types/<str:key>', DepositTypeViewSet.as_view({'get': 'list'}), name='master_deposit_types'),
+    path('directions/<str:key>', DirectionViewSet.as_view({'get': 'list'}), name='master_directions'),
+    path('electric_types/<str:key>', ElectricTypeViewSet.as_view({'get': 'list'}), name='master_electric_types'),
+    path('equipments/<str:key>', EquipmentViewSet.as_view({'get': 'list'}), name='master_equipments'),
+    path('existences/<str:key>', ExistenceViewSet.as_view({'get': 'list'}), name='master_existences'),
+    path('facilities/<str:key>', FacilityViewSet.as_view({'get': 'list'}), name='master_facilities'),
+    path('free_rent_types/<str:key>', FreeRentTypeViewSet.as_view({'get': 'list'}), name='master_free_rent_types'),
+    path('garage_statuses/<str:key>', GarageStatusViewSet.as_view({'get': 'list'}), name='master_garage_statuses'),
+    path('garage_types/<str:key>', GarageTypeViewSet.as_view({'get': 'list'}), name='master_garage_types'),
+    path('gas_types/<str:key>', GasTypeViewSet.as_view({'get': 'list'}), name='master_gas_types'),
+    path('guarantee_types/<str:key>', GuaranteeTypeViewSet.as_view({'get': 'list'}), name='master_guarantee_types'),
+    path('insurance_types/<str:key>', InsuranceTypeViewSet.as_view({'get': 'list'}), name='master_insurance_types'),
+    path('internet_types/<str:key>', InternetTypeViewSet.as_view({'get': 'list'}), name='master_internet_types'),
+    path('key_money_notations/<str:key>', KeyMoneyNotationViewSet.as_view({'get': 'list'}), name='master_key_money_notations'),
+    path('key_money_types/<str:key>', KeyMoneyTypeViewSet.as_view({'get': 'list'}), name='master_key_money_types'),
+    path('kitchen_range_types/<str:key>', KitchenRangeTypeViewSet.as_view({'get': 'list'}), name='master_kitchen_range_types'),
+    path('kitchen_types/<str:key>', KitchenTypeViewSet.as_view({'get': 'list'}), name='master_kitchen_types'),
+    path('landmark_types/<str:key>', LandmarkTypeViewSet.as_view({'get': 'list'}), name='master_landmark_types'),
+    path('landmarks/<str:key>/<int:landmark_type_id>', LandmarkViewSet.as_view({'get': 'list'}), name='master_landmarks'),
+    path('layout_type_categories/<str:key>', LayoutTypeCategoryViewSet.as_view({'get': 'list'}), name='master_layout_type_categories'),
+    path('layout_types/<str:key>', LayoutTypeViewSet.as_view({'get': 'list'}), name='master_layout_types'),
+    path('management_types/<str:key>', ManagementTypeViewSet.as_view({'get': 'list'}), name='master_management_types'),
+    path('month_days/<str:key>', MonthDayViewSet.as_view({'get': 'list'}), name='master_month_days'),
+    path('movie_types/<str:key>', MovieTypeViewSet.as_view({'get': 'list'}), name='master_movie_types'),
+    path('panorama_types/<str:key>', PanoramaTypeViewSet.as_view({'get': 'list'}), name='master_panorama_types'),
+    path('payment_fee_types/<str:key>', PaymentFeeTypeViewSet.as_view({'get': 'list'}), name='master_payment_fee_types'),
+    path('payment_types/<str:key>', PaymentTypeViewSet.as_view({'get': 'list'}), name='master_payment_types'),
+    path('pet_types/<str:key>', PetTypeViewSet.as_view({'get': 'list'}), name='master_pet_types'),
+    path('picture_types/<str:key>', PictureTypeViewSet.as_view({'get': 'list'}), name='master_picture_types'),
+    path('prefs/<str:key>', PrefViewSet.as_view({'get': 'list'}), name='master_prefs'),
+    path('railways/<str:key>', RailwayViewSet.as_view({'get': 'list'}), name='master_railways'),
+    path('renewal_fee_notations/<str:key>', RenewalFeeNotationViewSet.as_view({'get': 'list'}), name='master_renewal_fee_notations'),
+    path('rental_types/<str:key>', RentalTypeViewSet.as_view({'get': 'list'}), name='master_rental_types'),
+    path('room_statuses/<str:key>', RoomStatusViewSet.as_view({'get': 'list'}), name='master_room_statuses'),
+    path('stations/<str:key>/<int:railway_id>', StationViewSet.as_view({'get': 'list'}), name='master_stations'),
+    path('structures/<str:key>', StructureViewSet.as_view({'get': 'list'}), name='master_structures'),
+    path('tax_types/<str:key>', TaxTypeViewSet.as_view({'get': 'list'}), name='master_tax_types'),
+    path('toilet_types/<str:key>', ToiletTypeViewSet.as_view({'get': 'list'}), name='master_toilet_types'),
+    path('vacancy_statuses/<str:key>', VacancyStatusViewSet.as_view({'get': 'list'}), name='master_vacancy_statuses'),
+    path('washer_types/<str:key>', WasherTypeViewSet.as_view({'get': 'list'}), name='master_washer_types'),
+    path('water_cost_types/<str:key>', WaterCostTypeViewSet.as_view({'get': 'list'}), name='master_water_cost_types'),
+]
