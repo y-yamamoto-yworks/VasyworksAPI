@@ -24,3 +24,4 @@ VasyworksLISTのdocsディレクトリにある「格安サーバ構築.txt」�
 VasyworksDB   http://vacancy.yworks.net:8080/admin/  （ログインユーザ情報非公開）
 VasyworksMGR  http://vacancy.yworks.net:8081/        （ログインユーザ情報公開）
 VasyworksLIST  http://vacancy.yworks.net/             （ログインユーザ情報公開）
+VasyworksAPI  http://vacancy.yworks.net:8082/             （ログイン不要）
