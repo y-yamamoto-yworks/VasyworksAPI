@@ -12,6 +12,7 @@ from .deposit_notation_view_set import DepositNotationViewSet
 from .deposit_type_view_set import DepositTypeViewSet
 from .direction_view_set import DirectionViewSet
 from .electric_type_view_set import ElectricTypeViewSet
+from .elementary_school_view_set import ElementarySchoolViewSet
 from .equipment_view_set import EquipmentViewSet
 from .existence_view_set import ExistenceViewSet
 from .facility_view_set import FacilityViewSet
@@ -22,6 +23,7 @@ from .gas_type_view_set import GasTypeViewSet
 from .guarantee_type_view_set import GuaranteeTypeViewSet
 from .insurance_type_view_set import InsuranceTypeViewSet
 from .internet_type_view_set import InternetTypeViewSet
+from .junior_high_school_view_set import JuniorHighSchoolViewSet
 from .key_money_notation_view_set import KeyMoneyNotationViewSet
 from .key_money_type_view_set import KeyMoneyTypeViewSet
 from .kitchen_range_type_view_set import KitchenRangeTypeViewSet

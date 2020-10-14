@@ -15,4 +15,4 @@ class ElementarySchoolSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ElementarySchool
-        fields = ('id', 'name', 'lat', 'lng', 'pref',)
+        fields = ('id', 'name', 'kana', 'lat', 'lng', 'pref',)

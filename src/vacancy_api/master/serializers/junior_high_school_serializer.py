@@ -14,4 +14,4 @@ class JuniorHighSchoolSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = JuniorHighSchool
-        fields = ('id', 'name', 'lat', 'lng', 'pref',)
+        fields = ('id', 'name', 'kana', 'lat', 'lng', 'pref',)
