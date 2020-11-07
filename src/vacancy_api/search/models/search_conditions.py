@@ -210,8 +210,8 @@ class SearchConditions(object):
             if is_building:
                 ans += ' OR management_type.is_condo_management = TRUE'
             else:
-                ans += ' OR (management_type.is_condo_management = TRUE'
-                ans += ' AND (room.is_sublease = TRUE OR room.is_condo_management = TRUE OR room.is_entrusted=TRUE))'
+                ans += ' OR (management_type.is_condo_management = TRUE AND room.is_condo_management = TRUE)'
+                ans += ' OR room.is_sublease = TRUE OR room.is_entrusted=TRUE'
             ans += ')'
 
         return None

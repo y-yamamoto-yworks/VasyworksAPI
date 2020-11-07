@@ -1371,12 +1371,15 @@ class Room(models.Model):
         ans.add(Q(room_status__for_rent=True), Q.AND)  # 空き・空き予定
 
         if not is_no_limit:
-            ans.add(Q(
-                Q(building__management_type__is_own=True) | Q(building__management_type__is_entrusted=True)  # 自社物件、専任物件
-            ) | Q(
-                Q(building__management_type__is_condo_management=True),  # 分譲マンション
-                Q(is_sublease=True) | Q(is_condo_management=True) | Q(is_entrusted=True),  # サブリース、分譲管理、分譲専任の部屋
-            ), Q.AND)
+            ans.add(
+                Q(
+                    Q(building__management_type__is_own=True)     # 自社物件
+                    | Q(building__management_type__is_entrusted=True)  # 専任物件
+                ) | Q(
+                    building__management_type__is_condo_management=True,  # 分譲マンション
+                    is_condo_management=True,  # 分譲管理の部屋
+                ) | Q(is_sublease=True) | Q(is_entrusted=True),     # サブリース、専任の部屋
+                Q.AND)
 
         if only_residential:
             ans.add(Q(rental_type__is_residential=True), Q.AND)
