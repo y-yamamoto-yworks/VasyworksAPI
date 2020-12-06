@@ -18,7 +18,8 @@ VasyworksAPIのソースコードは山本 泰弘の著作物として、AGLPv3�
 ・Django 2.2.14
 
 5. インストールについて
-VasyworksLISTのdocsディレクトリにある「格安サーバ構築.txt」を参照してください。
+下記のURLを参照してください。
+https://vasyworks.yworks.net/index.php/install/
 
 6. DEMO環境
 VasyworksDB   http://vacancy.yworks.net:8080/admin/  （ログインユーザ情報非公開）
