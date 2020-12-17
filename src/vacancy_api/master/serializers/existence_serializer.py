@@ -12,4 +12,4 @@ class ExistenceSerializer(serializers.ModelSerializer):
     """有無"""
     class Meta:
         model = Existence
-        fields = ('id', 'name', 'is_exists', 'is_none',)
+        fields = ('id', 'name', 'is_exist', 'is_none',)
