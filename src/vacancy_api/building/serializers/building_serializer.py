@@ -26,6 +26,7 @@ class BuildingSerializer(serializers.ModelSerializer):
     arrival_type2 = ArrivalTypeSerializer(many=False)
     arrival_type3 = ArrivalTypeSerializer(many=False)
     bike_parking_type = BikeParkingTypeSerializer(many=False)
+    bike_parking_fee_tax_type = TaxTypeSerializer(many=False)
     building_type = BuildingTypeSerializer(many=False)
     city = CitySerializer(many=False)
     department = DepartmentSerializer(many=False)
