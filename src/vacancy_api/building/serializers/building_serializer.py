@@ -44,6 +44,7 @@ class BuildingSerializer(serializers.ModelSerializer):
     station2 = StationSerializer(many=False)
     station3 = StationSerializer(many=False)
     structure = StructureSerializer(many=False)
+    agreement_existence = ExistenceSerializer(many=False)
 
     facilities = BuildingFacilitySerializer(many=True)
     files = BuildingFileSerializer(many=True)

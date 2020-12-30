@@ -142,9 +142,9 @@ class DataHelper:
         return ans
 
     @staticmethod
-    def get_is_exists_text(existence):
+    def get_is_exist_text(existence):
         ans = None
-        if existence.is_exists:
+        if existence.is_exist:
             ans = existence.name
         return ans
 
