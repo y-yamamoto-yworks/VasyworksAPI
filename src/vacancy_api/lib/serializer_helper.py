@@ -16,6 +16,7 @@ class SerializerHelper:
         """建物画像用の項目"""
         return (
             'id',
+            'idb64',
             'building_oid',
             'picture_type',
             'thumbnail_file_url',
@@ -30,6 +31,7 @@ class SerializerHelper:
         """部屋画像用の項目"""
         return (
             'id',
+            'idb64',
             'building_oid',
             'room_oid',
             'picture_type',
