@@ -17,6 +17,7 @@ class SearchedGaragePictureSerializer(serializers.ModelSerializer):
         model = SearchedGaragePicture
         fields = (
             'id',
+            'idb64',
             'building_oid',
             'thumbnail_file_url',
             'small_file_url',

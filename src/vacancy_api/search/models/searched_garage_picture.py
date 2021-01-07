@@ -98,6 +98,10 @@ class SearchedGaragePicture(models.Model):
     表示用プロパティ
     """
     @property
+    def idb64(self):
+        return base64_decode_id(self.pk)
+
+    @property
     def thumbnail_file_url(self):
         """サムネイルファイルのURLの取得"""
         return CacheFileHelper.get_property_image_file_url(
