@@ -1,0 +1,1 @@
+from .vacancy_room_view_set import VacancyRoomViewSet

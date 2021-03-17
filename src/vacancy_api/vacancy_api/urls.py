@@ -23,6 +23,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('building/', include('building.urls')),
     path('company/', include('company.urls')),
+    path('data_link/', include('data_link.urls')),
     path('documents/', include('documents.urls')),
     path('master/', include('master.urls')),
     path('room/', include('room.urls')),

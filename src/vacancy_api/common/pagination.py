@@ -31,3 +31,15 @@ class MasterListApiPagination(pagination.PageNumberPagination):
             'count': len(data),
             'list': data
         })
+
+
+class DataLinkListApiPagination(pagination.PageNumberPagination):
+    """データ連携リスト用ページネーション"""
+    page_size = 99999
+    max_page_size = 99999
+
+    def get_paginated_response(self, data):
+        return Response({
+            'count': len(data),
+            'list': data
+        })

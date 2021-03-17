@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django_filters',
     'building',
     'company',
+    'data_link',
     'documents',
     'master',
     'rent_db',
