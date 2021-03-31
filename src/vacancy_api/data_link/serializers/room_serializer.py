@@ -117,6 +117,8 @@ class RoomSerializer(serializers.ModelSerializer):
             'room_floor',
             'rental_type',
             'is_sublease',
+            'is_condo_management',
+            'is_entrusted',
             'room_status',
             'vacancy_status',
             'vacancy_status_note',
