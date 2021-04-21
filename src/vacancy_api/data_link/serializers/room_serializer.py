@@ -20,6 +20,7 @@ class RoomSerializer(serializers.ModelSerializer):
     rental_type = RentalTypeSerializer(many=False)
     room_status = RoomStatusSerializer(many=False)
     vacancy_status = VacancyStatusSerializer(many=False)
+    live_start_day = MonthDaySerializer(many=False)
     layout_type = LayoutTypeSerializer(many=False)
     kitchen_type1 = KitchenTypeSerializer(many=False)
     kitchen_type2 = KitchenTypeSerializer(many=False)
@@ -122,6 +123,9 @@ class RoomSerializer(serializers.ModelSerializer):
             'room_status',
             'vacancy_status',
             'vacancy_status_note',
+            'live_start_year',
+            'live_start_month',
+            'live_start_day',
             'layout_type',
             'layout_detail_text',
             'western_style_room1',
