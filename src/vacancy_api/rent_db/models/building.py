@@ -31,7 +31,7 @@ from .staff import Staff
 from .station import Station
 from .structure import Structure
 from .tax_type import TaxType
-from users.models import VacancyUser
+from .trader import Trader
 
 
 class Building(models.Model):
@@ -153,6 +153,14 @@ class Building(models.Model):
         on_delete=models.PROTECT,
         default=0,
         limit_choices_to=Q(is_stopped=False, is_deleted=False) | Q(pk=0),
+    )
+    trader = models.ForeignKey(
+        Trader,
+        db_column='trader_id',
+        related_name='buildings',
+        db_index=True,
+        on_delete=models.PROTECT,
+        default=0,
     )
 
     arrival_type1 = models.ForeignKey(

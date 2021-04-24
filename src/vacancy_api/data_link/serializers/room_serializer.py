@@ -12,12 +12,14 @@ from .room_equipment_serializer import RoomEquipmentSerializer
 from .room_movie_serializer import RoomMovieSerializer
 from .room_panorama_serializer import RoomPanoramaSerializer
 from .room_picture_serializer import RoomPictureSerializer
+from .trader_serializer import TraderSerializer
 
 
 class RoomSerializer(serializers.ModelSerializer):
     """部屋"""
     building = BuildingSerializer(many=False)
     rental_type = RentalTypeSerializer(many=False)
+    condo_trader = TraderSerializer(many=False)
     room_status = RoomStatusSerializer(many=False)
     vacancy_status = VacancyStatusSerializer(many=False)
     live_start_day = MonthDaySerializer(many=False)
@@ -120,6 +122,7 @@ class RoomSerializer(serializers.ModelSerializer):
             'is_sublease',
             'is_condo_management',
             'is_entrusted',
+            'condo_trader',
             'room_status',
             'vacancy_status',
             'vacancy_status_note',

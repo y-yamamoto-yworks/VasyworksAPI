@@ -66,6 +66,7 @@ from .staff import Staff
 from .station import Station, TransferStation
 from .structure import Structure
 from .tax_type import TaxType
+from .trader import Trader
 from .toilet_type import ToiletType
 from .vacancy_status import VacancyStatus
 from .washer_type import WasherType

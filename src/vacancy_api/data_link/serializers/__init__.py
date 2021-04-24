@@ -9,3 +9,4 @@ from .room_movie_serializer import RoomMovieSerializer
 from .room_panorama_serializer import RoomPanoramaSerializer
 from .room_picture_serializer import RoomPictureSerializer
 from .room_serializer import RoomSerializer
+from .trader_serializer import TraderSerializer

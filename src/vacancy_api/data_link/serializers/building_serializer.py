@@ -13,11 +13,13 @@ from .building_landmark_serializer import BuildingLandmarkSerializer
 from .building_movie_serializer import BuildingMovieSerializer
 from .building_panorama_serializer import BuildingPanoramaSerializer
 from .building_picture_serializer import BuildingPictureSerializer
+from .trader_serializer import TraderSerializer
 
 
 class BuildingSerializer(serializers.ModelSerializer):
     """建物"""
     agency_department = DepartmentSerializer(many=False)
+    trader = TraderSerializer(many=False)
     area = AreaSerializer(many=False)
     arrival_type1 = ArrivalTypeSerializer(many=False)
     arrival_type2 = ArrivalTypeSerializer(many=False)
@@ -71,6 +73,7 @@ class BuildingSerializer(serializers.ModelSerializer):
             'junior_high_school_distance',
             'management_type',
             'agency_department',
+            'trader',
             'nearest_station1',
             'arrival_type1',
             'station1',

@@ -41,6 +41,7 @@ from .rental_type import RentalType
 from .room_status import RoomStatus
 from .tax_type import TaxType
 from .toilet_type import ToiletType
+from .trader import Trader
 from .vacancy_status import VacancyStatus
 from .washer_type import WasherType
 from .water_cost_type import WaterCostType
@@ -79,6 +80,14 @@ class Room(models.Model):
 
     is_condo_management = models.BooleanField(_('is_condo_management'), db_column='is_condo_management', db_index=True, default=False)
     is_entrusted = models.BooleanField(_('is_entrusted'), db_column='is_entrusted', db_index=True, default=False)
+    condo_trader = models.ForeignKey(
+        Trader,
+        db_column='condo_trader_id',
+        related_name='condo_rooms',
+        db_index=True,
+        on_delete=models.PROTECT,
+        default=0,
+    )
 
     room_status = models.ForeignKey(
         RoomStatus,
