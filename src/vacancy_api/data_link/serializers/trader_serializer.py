@@ -18,4 +18,6 @@ class TraderSerializer(serializers.ModelSerializer):
             'tel1',
             'no_trading',
             'no_portal',
+            'is_stopped',
+            'is_deleted',
         )
