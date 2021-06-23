@@ -18,11 +18,11 @@ VasyworksAPIのソースコードは山本 泰弘の著作物として、AGLPv3�
 
 4.動作環境について
 開発環境は下記の通りです。
-・OS: Ubuntu 18.04
-・Nginx 1.14.0
-・PostgreSQL10.14
-・Python3.7 venv
-・Django 2.2.14
+・OS: Ubuntu 20.04
+・Nginx 1.18.0
+・PostgreSQL12.7
+・Python3.8 venv
+・Django 3.2.4
 
 5. インストールについて
 下記のURLを参照してください。
