@@ -382,4 +382,5 @@ class RoomSerializer(serializers.ModelSerializer):
             'pictures',
             'movies',
             'panoramas',
+            'updated_date',
         )

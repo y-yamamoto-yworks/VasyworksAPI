@@ -846,6 +846,7 @@ class Room(models.Model):
     reform_month = models.IntegerField(_('reform_month'), db_column='reform_month', default=0)
     reform_note = models.CharField(_('reform_note'), db_column='reform_note', max_length=255, null=True, blank=True)
 
+    updated_at = models.DateTimeField(_('updated_at'), db_column='updated_at', default=timezone.now)
     is_deleted = models.BooleanField(_('is_deleted'), db_column='is_deleted', db_index=True, default=False)
 
     class Meta:
@@ -1369,6 +1370,10 @@ class Room(models.Model):
     @property
     def office_use_type_text(self):
         return DataHelper.get_allow_type_text(self.office_use_type)
+
+    @property
+    def updated_date(self):
+        return self.updated_at.date()
 
     """
     空室条件取得用メソッド

@@ -62,6 +62,7 @@ class BuildingSerializer(serializers.ModelSerializer):
             'pref',
             'city',
             'town_address',
+            'town_name',
             'house_no',
             'building_no',
             'lat',
