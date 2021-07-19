@@ -33,6 +33,7 @@ class DocumentFile(models.Model):
         return self.file_name
 
     class Meta:
+        managed = False
         db_table = 'document_file'
         ordering = ['priority', 'id']
         verbose_name = _('document_file')

@@ -25,6 +25,7 @@ class DepositType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'deposit_type'
         ordering = ['priority', 'id']
         verbose_name = _('deposit_type')

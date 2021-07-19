@@ -24,6 +24,7 @@ class PaymentFeeType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'payment_fee_type'
         ordering = ['priority', 'id']
         verbose_name = _('payment_fee_type')

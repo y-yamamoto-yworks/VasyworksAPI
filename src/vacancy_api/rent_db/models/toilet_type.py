@@ -24,6 +24,7 @@ class ToiletType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'toilet_type'
         ordering = ['priority', 'id']
         verbose_name = _('toilet_type')

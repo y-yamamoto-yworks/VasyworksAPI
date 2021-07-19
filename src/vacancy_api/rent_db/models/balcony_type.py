@@ -24,6 +24,7 @@ class BalconyType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'balcony_type'
         ordering = ['priority', 'id']
         verbose_name = _('balcony_type')

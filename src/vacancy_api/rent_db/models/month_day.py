@@ -26,6 +26,7 @@ class MonthDay(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'month_day'
         ordering = ['priority', 'id']
         verbose_name = _('month_day')

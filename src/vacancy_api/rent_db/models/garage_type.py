@@ -26,6 +26,7 @@ class GarageType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'garage_type'
         ordering = ['priority', 'id']
         verbose_name = _('garage_type')

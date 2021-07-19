@@ -26,6 +26,7 @@ class MovieType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'movie_type'
         ordering = ['priority', 'id']
         verbose_name = _('movie_type')

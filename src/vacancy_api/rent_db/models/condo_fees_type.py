@@ -24,6 +24,7 @@ class CondoFeesType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'condo_fees_type'
         ordering = ['priority', 'id']
         verbose_name = _('condo_fees_type')

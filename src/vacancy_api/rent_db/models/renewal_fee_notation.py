@@ -26,6 +26,7 @@ class RenewalFeeNotation(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'renewal_fee_notation'
         ordering = ['priority', 'id']
         verbose_name = _('renewal_fee_notation')

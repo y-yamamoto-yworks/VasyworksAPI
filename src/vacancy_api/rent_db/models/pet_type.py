@@ -25,6 +25,7 @@ class PetType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'pet_type'
         ordering = ['priority', 'id']
         verbose_name = _('pet_type')

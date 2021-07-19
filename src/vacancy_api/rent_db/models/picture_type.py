@@ -28,6 +28,7 @@ class PictureType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'picture_type'
         ordering = ['priority', 'id']
         verbose_name = _('picture_type')

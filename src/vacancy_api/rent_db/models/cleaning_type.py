@@ -25,6 +25,7 @@ class CleaningType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'cleaning_type'
         ordering = ['priority', 'id']
         verbose_name = _('cleaning_type')

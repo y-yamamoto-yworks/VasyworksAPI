@@ -25,6 +25,7 @@ class KeyMoneyType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'key_money_type'
         ordering = ['priority', 'id']
         verbose_name = _('key_money_type')

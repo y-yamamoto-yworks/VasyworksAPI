@@ -24,6 +24,7 @@ class Facility(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'facility'
         ordering = ['priority', 'id']
         verbose_name = _('facility')

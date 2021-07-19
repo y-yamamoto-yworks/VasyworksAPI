@@ -26,6 +26,7 @@ class BikeParkingType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'bike_parking_type'
         ordering = ['priority', 'id']
         verbose_name = _('bike_parking_type')

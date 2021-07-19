@@ -24,6 +24,7 @@ class ElectricType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'electric_type'
         ordering = ['priority', 'id']
         verbose_name = _('electric_type')

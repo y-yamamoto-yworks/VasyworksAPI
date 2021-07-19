@@ -27,6 +27,7 @@ class RoomStatus(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'room_status'
         ordering = ['priority', 'id']
         verbose_name = _('room_status')

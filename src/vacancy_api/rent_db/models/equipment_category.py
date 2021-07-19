@@ -25,6 +25,7 @@ class EquipmentCategory(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'equipment_category'
         ordering = ['priority', 'id']
         verbose_name = _('equipment_category')

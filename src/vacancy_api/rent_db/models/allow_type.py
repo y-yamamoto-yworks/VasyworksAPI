@@ -24,6 +24,7 @@ class AllowType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'allow_type'
         ordering = ['priority', 'id']
         verbose_name = _('allow_type')

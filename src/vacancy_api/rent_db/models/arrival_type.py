@@ -24,6 +24,7 @@ class ArrivalType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'arrival_type'
         ordering = ['priority', 'id']
         verbose_name = _('arrival_type')

@@ -25,6 +25,7 @@ class Pref(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'pref'
         ordering = ['priority', 'id']
         verbose_name = _('pref')

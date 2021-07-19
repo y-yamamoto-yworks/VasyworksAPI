@@ -24,6 +24,7 @@ class LandmarkType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'landmark_type'
         ordering = ['priority', 'id']
         verbose_name = _('landmark_type')

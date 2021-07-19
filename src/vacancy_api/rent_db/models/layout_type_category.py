@@ -25,6 +25,7 @@ class LayoutTypeCategory(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'layout_type_category'
         ordering = ['priority', 'id']
         verbose_name = _('layout_type_category')

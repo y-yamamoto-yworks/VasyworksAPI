@@ -24,6 +24,7 @@ class WaterCostType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'water_cost_type'
         ordering = ['priority', 'id']
         verbose_name = _('water_cost_type')

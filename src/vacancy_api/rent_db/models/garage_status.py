@@ -24,6 +24,7 @@ class GarageStatus(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'garage_status'
         ordering = ['priority', 'id']
         verbose_name = _('garage_status')

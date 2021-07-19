@@ -24,6 +24,7 @@ class TaxType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'tax_type'
         ordering = ['priority', 'id']
         verbose_name = _('tax_type')

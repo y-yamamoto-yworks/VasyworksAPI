@@ -24,6 +24,7 @@ class KitchenRangeType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'kitchen_range_type'
         ordering = ['priority', 'id']
         verbose_name = _('kitchen_range_type')

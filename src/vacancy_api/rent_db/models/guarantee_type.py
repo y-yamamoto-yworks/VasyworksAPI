@@ -24,6 +24,7 @@ class GuaranteeType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'guarantee_type'
         ordering = ['priority', 'id']
         verbose_name = _('guarantee_type')

@@ -24,6 +24,7 @@ class Existence(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'existence'
         ordering = ['priority', 'id']
         verbose_name = _('existence')

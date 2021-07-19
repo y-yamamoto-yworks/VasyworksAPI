@@ -24,6 +24,7 @@ class FreeRentType(models.Model):
         return self.name
 
     class Meta:
+        managed = False
         db_table = 'free_rent_type'
         ordering = ['priority', 'id']
         verbose_name = _('free_rent_type')
