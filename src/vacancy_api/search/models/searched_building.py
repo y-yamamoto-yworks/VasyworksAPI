@@ -20,9 +20,6 @@ from .searched_building_exterior_picture import SearchedBuildingExteriorPicture
 
 class SearchedBuilding(models.Model):
     """建物リスト"""
-    conditions = None
-    is_residential = True
-
     id = models.AutoField(_('id'), db_column='id', primary_key=True)
     oid = models.CharField(_('oid'), db_column='oid', db_index=True, unique=True, max_length=50)
     building_code = models.CharField(_('building_code'), db_column='building_code', max_length=20, db_index=True, null=True, blank=True)
@@ -184,6 +181,12 @@ class SearchedBuilding(models.Model):
 
     class Meta:
         managed = False
+
+    def __init__(self, *args, **kwargs):
+        self.conditions = None
+        self.is_residential = True
+
+        super().__init__(*args, **kwargs)
 
     """
     検索関連

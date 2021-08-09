@@ -12,16 +12,19 @@ from lib.url_param_helper import UrlParamHelper
 
 class SearchGarageConditions(object):
     """駐車場検索条件"""
-    no_limited = False          # 管理種別の限定無し（管理物件・専任物件以外も含む）
-    stations = None             # 駅
-    walk_time = None            # 駅徒歩時間
-    cities = None               # 市区町村
-    areas = None                # エリア
-    landmarks = None            # ランドマーク（大学など）
-    north = None                # 北緯
-    south = None                # 南緯
-    east = None                 # 東経
-    west = None                 # 西経
+    def __init__(self, *args, **kwargs):
+        self.no_limited = False  # 管理種別の限定無し（管理物件・専任物件以外も含む）
+        self.stations = None  # 駅
+        self.walk_time = None  # 駅徒歩時間
+        self.cities = None  # 市区町村
+        self.areas = None  # エリア
+        self.landmarks = None  # ランドマーク（大学など）
+        self.north = None  # 北緯
+        self.south = None  # 南緯
+        self.east = None  # 東経
+        self.west = None  # 西経
+
+        super().__init__(*args, **kwargs)
 
     """
     メソッド

@@ -19,9 +19,12 @@ from building.serializers import BuildingSerializer
 
 class BuildingViewSet(viewsets.ReadOnlyModelViewSet):
     """建物"""
-    is_no_limit = False         # 自社物件以外も含む場合はTrue
-    is_only_residential = False      # 居住用のみ対象の場合はTrue
-    is_only_non_residential = False  # 非居住用のみ対象の場合はTrue
+    def __init__(self, **kwargs):
+        self.is_no_limit = False  # 自社物件以外も含む場合はTrue
+        self.is_only_residential = False  # 居住用のみ対象の場合はTrue
+        self.is_only_non_residential = False  # 非居住用のみ対象の場合はTrue
+
+        super().__init__(**kwargs)
 
     def retrieve(self, request, *args, **kwargs):
         key = kwargs.get('key')

@@ -21,9 +21,13 @@ from data_link.serializers import RoomSerializer
 class VacancyRoomViewSet(viewsets.ReadOnlyModelViewSet):
     """空室"""
     pagination_class = DataLinkListApiPagination
-    is_no_limit = False         # 自社物件以外も含む場合はTrue
-    is_only_residential = False      # 居住用のみ対象の場合はTrue
-    is_only_non_residential = False  # 非居住用のみ対象の場合はTrue
+
+    def __init__(self, **kwargs):
+        self.is_no_limit = False  # 自社物件以外も含む場合はTrue
+        self.is_only_residential = False  # 居住用のみ対象の場合はTrue
+        self.is_only_non_residential = False  # 非居住用のみ対象の場合はTrue
+
+        super().__init__(**kwargs)
 
     def list(self, request, *args, **kwargs):
         key = kwargs.get('key')

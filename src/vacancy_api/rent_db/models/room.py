@@ -51,10 +51,6 @@ class Room(models.Model):
     """
     部屋
     """
-    is_no_limit = False         # 自社物件以外も含む場合はTrue
-    is_only_residential = False      # 居住用のみ対象の場合はTrue
-    is_only_non_residential = False  # 非居住用のみ対象の場合はTrue
-
     id = models.AutoField(_('id'), db_column='id', primary_key=True)
 
     oid = models.CharField(_('oid'), db_column='oid', db_index=True, unique=True, max_length=50)
@@ -855,6 +851,13 @@ class Room(models.Model):
         ordering = ['building_id', 'room_no', 'id']
         verbose_name = _('room')
         verbose_name_plural = _('rooms')
+
+    def __init__(self, *args, **kwargs):
+        self.is_no_limit = False  # 自社物件以外も含む場合はTrue
+        self.is_only_residential = False  # 居住用のみ対象の場合はTrue
+        self.is_only_non_residential = False  # 非居住用のみ対象の場合はTrue
+
+        super().__init__(*args, **kwargs)
 
     def __str__(self):
         return self.room_no

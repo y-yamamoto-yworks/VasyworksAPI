@@ -12,71 +12,74 @@ from lib.url_param_helper import UrlParamHelper
 
 class SearchConditions(object):
     """検索条件"""
-    no_limited = False          # 管理種別の限定無し（管理物件・専任物件以外も含む）
-    stations = None             # 駅
-    walk_time = None            # 駅徒歩時間
-    cities = None               # 市区町村
-    areas = None                # エリア
-    landmarks = None            # ランドマーク（大学など）
-    north = None                # 北緯
-    south = None                # 南緯
-    east = None                 # 東経
-    west = None                 # 西経
-    elementary_school = None    # 小学校区
-    building_types = None       # 建物種別
-    building_age = None         # 築年数
-    with_garage = False         # 駐車場
-    with_bike_parking = False   # 駐輪場
+    def __init__(self, *args, **kwargs):
+        self.no_limited = False  # 管理種別の限定無し（管理物件・専任物件以外も含む）
+        self.stations = None  # 駅
+        self.walk_time = None  # 駅徒歩時間
+        self.cities = None  # 市区町村
+        self.areas = None  # エリア
+        self.landmarks = None  # ランドマーク（大学など）
+        self.north = None  # 北緯
+        self.south = None  # 南緯
+        self.east = None  # 東経
+        self.west = None  # 西経
+        self.elementary_school = None  # 小学校区
+        self.building_types = None  # 建物種別
+        self.building_age = None  # 築年数
+        self.with_garage = False  # 駐車場
+        self.with_bike_parking = False  # 駐輪場
 
-    rent_lower = None           # 賃料下限
-    rent_upper = None           # 賃料上限
-    include_condo_fees = False  # 共益費含む
-    free_rent = False           # フリーレント有り
-    without_deposit = None      # 敷金・礼金・保証金なし
-    layout_types = None         # 間取タイプ
-    only_first_floor = False    # 1階
-    over_second_floor = False   # 2階以上
-    only_top_floor = False      # 最上階・上階無し
-    directions = None           # 開口向き
-    gas_kitchen = False         # ガスキッチン
-    separate = False            # バストイレ別
-    free_internet = False       # インターネット無料
-    indoor_washer = False       # 室内洗濯機可
-    pet = False                 # ペット可
-    instrument = False          # 楽器可
-    live_together = False       # 同居可
-    children = False            # 子供可
-    room_share = False          # ルームシェア可
-    non_japanese = False        # 外国人可
-    new_student = False         # 新入生予約可
-    office_use = False          # 事務所利用可
+        self.rent_lower = None  # 賃料下限
+        self.rent_upper = None  # 賃料上限
+        self.include_condo_fees = False  # 共益費含む
+        self.free_rent = False  # フリーレント有り
+        self.without_deposit = None  # 敷金・礼金・保証金なし
+        self.layout_types = None  # 間取タイプ
+        self.only_first_floor = False  # 1階
+        self.over_second_floor = False  # 2階以上
+        self.only_top_floor = False  # 最上階・上階無し
+        self.directions = None  # 開口向き
+        self.gas_kitchen = False  # ガスキッチン
+        self.separate = False  # バストイレ別
+        self.free_internet = False  # インターネット無料
+        self.indoor_washer = False  # 室内洗濯機可
+        self.pet = False  # ペット可
+        self.instrument = False  # 楽器可
+        self.live_together = False  # 同居可
+        self.children = False  # 子供可
+        self.room_share = False  # ルームシェア可
+        self.non_japanese = False  # 外国人可
+        self.new_student = False  # 新入生予約可
+        self.office_use = False  # 事務所利用可
 
-    system_kitchen = False      # システムキッチン
-    washstand = False           # 独立洗面台（シャンプードレッサー含む）
-    aircon = False              # エアコン
-    auto_lock = False           # オートロック
-    designers = False           # デザイナーズマンション
-    elevator = False            # エレベータ
-    delivery_box = False        # 宅配ボックス
-    reheating_bath = False      # 追い焚き風呂
-    washing_toilet = False      # 温水洗浄便座
-    tv_intercom = False         # TV付インターフォン
-    loft = False                # ロフト
-    renovation = False          # リノベーション
-    diy = False                 # DIY可
-    walk_in_closet = False      # ウォークインクローゼット
-    barrier_free = False        # バリアフリー
-    garbage_box_24 = False      # 24時間ゴミ出し
+        self.system_kitchen = False  # システムキッチン
+        self.washstand = False  # 独立洗面台（シャンプードレッサー含む）
+        self.aircon = False  # エアコン
+        self.auto_lock = False  # オートロック
+        self.designers = False  # デザイナーズマンション
+        self.elevator = False  # エレベータ
+        self.delivery_box = False  # 宅配ボックス
+        self.reheating_bath = False  # 追い焚き風呂
+        self.washing_toilet = False  # 温水洗浄便座
+        self.tv_intercom = False  # TV付インターフォン
+        self.loft = False  # ロフト
+        self.renovation = False  # リノベーション
+        self.diy = False  # DIY可
+        self.walk_in_closet = False  # ウォークインクローゼット
+        self.barrier_free = False  # バリアフリー
+        self.garbage_box_24 = False  # 24時間ゴミ出し
 
-    tenant_furnished_shop = False   # 居抜き店舗
-    tenant_skeleton = False         # スケルトン
-    tenant_restaurant = False       # 飲食可
-    tenant_office = False           # 事務所向け
-    tenant_first_floor = False      # 1階店舗
-    tenant_soho = False             # SOHO
-    tenant_residence = False        # 住宅付店舗
+        self.tenant_furnished_shop = False  # 居抜き店舗
+        self.tenant_skeleton = False  # スケルトン
+        self.tenant_restaurant = False  # 飲食可
+        self.tenant_office = False  # 事務所向け
+        self.tenant_first_floor = False  # 1階店舗
+        self.tenant_soho = False  # SOHO
+        self.tenant_residence = False  # 住宅付店舗
 
-    odr = None                      # 並び順
+        self.odr = None  # 並び順
+
+        super().__init__(*args, **kwargs)
 
     """
     メソッド
