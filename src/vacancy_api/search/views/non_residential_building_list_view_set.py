@@ -23,6 +23,10 @@ class NonResidentialBuildingListViewSet(viewsets.ReadOnlyModelViewSet):
     conditions = None
 
     def list(self, request, *args, **kwargs):
+        key = kwargs.get('key')
+        if not ApiHelper.check_key(key):
+            raise Exception
+
         self.conditions = SearchConditions()
         self.conditions.set_conditions(self.request.query_params)
 
