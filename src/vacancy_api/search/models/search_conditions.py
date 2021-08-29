@@ -222,7 +222,7 @@ class SearchConditions(object):
     def get_landmarks_sql(self, params):
         ans = None
         if self.landmarks:
-            targets = ','.join(map(str, conditions.landmarks))
+            targets = ','.join(map(str, self.landmarks))
             ans = ' INNER JOIN ('
             ans += 'SELECT building_landmark.building_id'
             ans += ' FROM building_landmark'
