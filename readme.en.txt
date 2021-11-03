@@ -1,5 +1,5 @@
 1.About Vasywoks
-Vasyworks is a generic name for a series of systems for registering and publishing vacancy information in the rental management industry. It is mainly intended for use by japanese rental management companies (corporations and individuals) to disclose vacancy information of managed properties to rental agencies in Japan.
+Vasyworks is a series title of systems for registering and publishing vacancy information in the rental management industry. It is mainly intended for use by japanese rental management companies (corporations and individuals) to disclose vacancy information of managed properties to rental agencies in Japan.
 
 Vasyworks includes VasyworksDB (database construction project), VasyworksMGR (vacancy information data management project), VasyworksLIST (vacancy information list project), VasyworksAPI (vacancy information API project) (Vacancy Information API Project), and VasyworksSEARCH (Vacancy Information Search Project).
 
