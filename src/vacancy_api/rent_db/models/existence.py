@@ -37,6 +37,7 @@ class Existence(models.Model):
         else:
             return False
 
+    @property
     def is_none(self):
         if self.id == 2:
             return True
