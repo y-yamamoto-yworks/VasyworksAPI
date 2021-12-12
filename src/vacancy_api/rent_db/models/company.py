@@ -8,6 +8,7 @@ import os
 import datetime
 from django.db.models import Q
 from django.db import models
+from django.conf import settings
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from lib.convert import *
@@ -54,5 +55,5 @@ class Company(models.Model):
     def get_instance(cls):
         """会社オブジェクトの生成"""
         if not cls._instance:
-            cls._instance = cls.objects.get(pk=1)
+            cls._instance = cls.objects.get(pk=settings.COMPANY_ID)
         return cls._instance
