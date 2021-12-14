@@ -5,6 +5,7 @@ Encoding: UTF-8
 Copyright (C) 2020 Yasuhiro Yamamoto
 """
 import os
+import re
 import sys
 import shutil
 from django.conf import settings
@@ -31,9 +32,11 @@ class CacheFileHelper:
         """ファイルのコピー"""
         ans = False
 
-        if os.path.exists(src) and not os.path.exists(dest):
+        secure_src = re.sub(r'\.+' + repr(os.sep), '', src)
+        secure_dest = re.sub(r'\.+' + repr(os.sep), '', dest)
+        if os.path.exists(secure_src) and not os.path.exists(secure_dest):
             try:
-                shutil.copy2(src, dest)
+                shutil.copy2(secure_src, secure_dest)
                 ans = True
             except:
                 ans = False
@@ -46,14 +49,17 @@ class CacheFileHelper:
 
         CacheFileHelper.__prepare_cache_dir()
         cache_path = os.path.join(settings.CACHE_FILE_DIR, 'buildings', file_oid)
+        cache_path = re.sub(r'\.+' + repr(os.sep), '', cache_path)
         cache_url = urljoin(settings.CACHE_FILE_URL, "./buildings/" + file_oid + "/")
         if not os.path.isdir(cache_path):
             os.makedirs(cache_path)
 
         cache_file_url = None
         org_file_path = os.path.join(settings.ORIGINAL_FILE_DIR, 'buildings', file_oid, file_dir, org_file_name)
+        org_file_path = re.sub(r'\.+' + repr(os.sep), '', org_file_path)
         if os.path.isfile(org_file_path):
             cache_file_path = os.path.join(cache_path, cache_file_name)
+            cache_file_path = re.sub(r'\.+' + repr(os.sep), '', cache_file_path)
             cache_file_url = urljoin(cache_url, cache_file_name)
             if not os.path.isfile(cache_file_path):
                 CacheFileHelper.__copy_file(org_file_path, cache_file_path)
@@ -66,14 +72,17 @@ class CacheFileHelper:
 
         CacheFileHelper.__prepare_cache_dir()
         cache_path = os.path.join(settings.CACHE_FILE_DIR, 'buildings', file_oid)
+        cache_path = re.sub(r'\.+' + repr(os.sep), '', cache_path)
         cache_url = urljoin(settings.CACHE_FILE_URL, "./buildings/" + file_oid + "/")
         if not os.path.isdir(cache_path):
             os.makedirs(cache_path)
 
         cache_file_url = None
         org_file_path = os.path.join(settings.ORIGINAL_FILE_DIR, 'buildings', file_oid, 'pictures', org_file_name)
+        org_file_path = re.sub(r'\.+' + repr(os.sep), '', org_file_path)
         if os.path.isfile(org_file_path):
             cache_file_path = os.path.join(cache_path, cache_file_name)
+            cache_file_path = re.sub(r'\.+' + repr(os.sep), '', cache_file_path)
             cache_file_url = urljoin(cache_url, cache_file_name)
             if not os.path.isfile(cache_file_path):
                 ImageHelper.cache_image(org_file_path, cache_file_path, water_mark, max_size)
@@ -100,12 +109,15 @@ class CacheFileHelper:
         """書類ファイルのURL取得"""
         CacheFileHelper.__prepare_cache_dir()
         cache_path = os.path.join(settings.CACHE_FILE_DIR, 'documents')
+        cache_path = re.sub(r'\.+' + repr(os.sep), '', cache_path)
         cache_url = urljoin(settings.CACHE_FILE_URL, "./documents/")
 
         cache_file_url = None
         org_file_path = os.path.join(settings.ORIGINAL_FILE_DIR, 'documents', 'files', org_file_name)
+        org_file_path = re.sub(r'\.+' + repr(os.sep), '', org_file_path)
         if os.path.isfile(org_file_path):
             cache_file_path = os.path.join(cache_path, cache_file_name)
+            cache_file_path = re.sub(r'\.+' + repr(os.sep), '', cache_file_path)
             cache_file_url = urljoin(cache_url, cache_file_name)
             if not os.path.isfile(cache_file_path):
                 CacheFileHelper.__copy_file(org_file_path, cache_file_path)

@@ -5,6 +5,7 @@ Encoding: UTF-8
 Copyright (C) 2020 Yasuhiro Yamamoto
 """
 import os
+import re
 import sys
 import qrcode
 from django.conf import settings
@@ -18,7 +19,10 @@ class ImageHelper:
     def cache_image(src_path, cache_path, water_mark, max_size):
         """ 画像をキャッシュ """
 
-        img = Image.open(src_path)
+        secure_src_path = re.sub(r'\.+' + repr(os.sep), '', src_path)
+        secure_cache_path = re.sub(r'\.+' + repr(os.sep), '', cache_path)
+
+        img = Image.open(secure_src_path)
         w, h = img.size
 
         if w > max_size or h > max_size:
@@ -63,20 +67,21 @@ class ImageHelper:
             img_cache = Image.alpha_composite(img_base, txt).convert("RGB")
 
         # 画像を出力します。
-        img_cache.save(cache_path, quality=95, optimize=True)
+        img_cache.save(secure_cache_path, quality=95, optimize=True)
 
     @staticmethod
     def make_qrcode(data, file_path, force=False):
         """QRコード画像の作成"""
-        if os.path.exists(file_path):
+        secure_file_path = re.sub(r'\.+' + repr(os.sep), '', file_path)
+        if os.path.exists(secure_file_path):
             if force:
-                os.remove(file_path)
+                os.remove(secure_file_path)
             else:
                 return
 
-        file_dir = os.path.dirname(file_path)
+        file_dir = os.path.dirname(secure_file_path)
         if not os.path.isdir(file_dir):
             os.makedirs(file_dir)
 
         img = qrcode.make(data)
-        img.save(file_path)
+        img.save(secure_file_path)
