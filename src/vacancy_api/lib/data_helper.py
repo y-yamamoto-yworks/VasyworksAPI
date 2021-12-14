@@ -46,7 +46,7 @@ class DataHelper:
         if station:
             if station.id != 0:
                 ans = xstr(station.railway.name) + ' ' + xstr(station.name)
-                ans += ' 駅まで' + xstr(arrival_type.name)
+                ans += '駅まで' + xstr(arrival_type.name)
                 ans += xstr(station_time) + '分'
                 if xint(arrival_type.id) == 2:
                     ans += '（バス停 ' + xstr(bus_stop)
@@ -115,7 +115,7 @@ class DataHelper:
         ans = None
         if payment_fee_type.id != 0:
             if payment_fee_type.is_money and fee > 0:
-                ans = ' {:,} 円'.format(fee)
+                ans = '{:,} 円'.format(fee)
                 if tax_type.text:
                     ans += '（{0}）'.format(tax_type.text)
         return ans
@@ -171,19 +171,19 @@ class DataHelper:
 
         if deposit_type.id != 0:
             if notation.is_money:
-                ans = ' {0:,.0f} {1}'.format(value, notation.unit)
+                ans = '{0:,.0f} {1}'.format(value, notation.unit)
                 if tax_type.text:
                     ans = '（{0}）'.format(tax_type.text)
             elif notation.is_month:
-                ans = ' 賃料 {0} {1}'.format(float_normalize(xfloat(value)), notation.unit)
+                ans = '賃料 {0} {1}'.format(float_normalize(xfloat(value)), notation.unit)
                 if tax_type.text:
                     ans = '（{0}）'.format(tax_type.text)
             elif notation.is_rate:
-                ans = ' 賃料の {0:.0f} {1}'.format(value, notation.unit)
+                ans = '賃料の {0:.0f} {1}'.format(value, notation.unit)
                 if tax_type.text:
                     ans = '（{0}）'.format(tax_type.text)
             else:
-                ans = ' {0}'.format(notation.name)
+                ans = '{0}'.format(notation.name)
 
         return ans
 
@@ -201,19 +201,19 @@ class DataHelper:
 
         if key_money_type.id != 0:
             if notation.is_money:
-                ans = ' {0:,.0f} {1}'.format(value, notation.unit)
+                ans = '{0:,.0f} {1}'.format(value, notation.unit)
                 if tax_type.text:
                     ans = '（{0}）'.format(tax_type.text)
             elif notation.is_month:
-                ans = ' 賃料 {0} {1}'.format(float_normalize(xfloat(value)), notation.unit)
+                ans = '賃料 {0} {1}'.format(float_normalize(xfloat(value)), notation.unit)
                 if tax_type.text:
                     ans = '（{0}）'.format(tax_type.text)
             elif notation.is_rate:
-                ans = ' 賃料の {0:.0f} {1}'.format(value, notation.unit)
+                ans = '賃料の {0:.0f} {1}'.format(value, notation.unit)
                 if tax_type.text:
                     ans = '（{0}）'.format(tax_type.text)
             else:
-                ans = ' {0}'.format(notation.name)
+                ans = '{0}'.format(notation.name)
 
         return ans
 
