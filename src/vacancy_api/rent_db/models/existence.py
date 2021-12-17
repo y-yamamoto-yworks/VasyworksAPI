@@ -31,7 +31,7 @@ class Existence(models.Model):
         verbose_name_plural = _('existences')
 
     @property
-    def is_exist(self):
+    def is_exists(self):
         if self.id == 1:
             return True
         else:

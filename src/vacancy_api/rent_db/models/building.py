@@ -554,4 +554,4 @@ class Building(models.Model):
 
     @property
     def agreement_existence_text(self):
-        return DataHelper.get_is_exist_text(self.agreement_existence)
+        return DataHelper.get_is_exists_text(self.agreement_existence)
