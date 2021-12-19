@@ -70,6 +70,6 @@ class BuildingFacility(models.Model):
         """距離"""
         ans = None
         if self.distance > 0:
-            ans = '{0} m'.format(self.distance)
+            ans = '{0}m'.format(self.distance)
 
         return ans
