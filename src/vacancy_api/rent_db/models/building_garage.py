@@ -122,7 +122,7 @@ class BuildingGarage(models.Model):
     def __cost_text(cost_name, cost, tax_type):
         ans = None
         if cost_name and cost > 0:
-            ans = '{:,} 円'.format(cost)
+            ans = '{:,}円'.format(cost)
             if tax_type.text:
                 ans += '({0})'.format(tax_type.text)
 
