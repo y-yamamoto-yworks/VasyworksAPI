@@ -644,7 +644,7 @@ class DataHelper:
                 if tax_type.text:
                     ans += '（{0}）'.format(tax_type.text)
             elif renewal_fee_notation.is_rate:
-                ans = '{0}の {1:.0f} {2}'.format(
+                ans = '{0}の{1:.0f}{2}'.format(
                     renewal_fee_notation.header,
                     float_normalize(xfloat(value)),
                     renewal_fee_notation.unit,
