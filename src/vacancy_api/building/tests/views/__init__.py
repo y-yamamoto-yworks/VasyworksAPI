@@ -1,0 +1,1 @@
+from .test_building_view_set import BuildingViewSetTest
