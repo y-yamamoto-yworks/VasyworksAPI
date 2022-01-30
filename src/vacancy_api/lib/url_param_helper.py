@@ -8,7 +8,6 @@ from django.conf import settings
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
 from django.utils import timezone
-from Crypto.Cipher import DES3
 from Crypto.Util.Padding import pad, unpad
 from lib.convert import *
 from lib.functions import *
