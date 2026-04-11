@@ -2,12 +2,12 @@
 System Name: Vasyworks
 Project Name: vacancy_api
 Encoding: UTF-8
-Copyright (C) 2020 Yasuhiro Yamamoto
+Copyright (C) 2020 - 2026 Yasuhiro Yamamoto
 """
 
 import uuid
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.utils.encoding import force_bytes, force_text
+from django.utils.encoding import force_bytes, force_str
 from .convert import *
 
 
@@ -29,7 +29,7 @@ def base64_encode_id(idb64: str):
     ans = 0
 
     try:
-        id = force_text(urlsafe_base64_decode(idb64))
+        id = force_str(urlsafe_base64_decode(idb64))
         if id.isdecimal():
             ans = xint(id)
     except ValueError:

@@ -2,7 +2,7 @@
 System Name: Vasyworks
 Project Name: vacancy_api
 Encoding: UTF-8
-Copyright (C) 2020 Yasuhiro Yamamoto
+Copyright (C) 2020 - 2026 Yasuhiro Yamamoto
 """
 import urllib.parse
 import django_filters
@@ -10,7 +10,7 @@ from django.shortcuts import render
 from rest_framework import viewsets, filters
 from django.db.models import Q
 from django.utils.http import urlsafe_base64_decode
-from django.utils.encoding import force_text, escape_uri_path
+from django.utils.encoding import force_str, escape_uri_path
 from lib.convert import *
 from lib.api_helper import ApiHelper
 from rent_db.models import *

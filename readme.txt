@@ -18,19 +18,12 @@ VasyworksAPIのソースコードは山本 泰弘の著作物として、AGLPv3�
 
 4.動作環境について
 開発環境は下記の通りです。
-・OS: Ubuntu 20.04
-・Nginx 1.18.0
-・PostgreSQL12.7
-・Python3.8 venv
-・Django 3.2.4
+・OS: Ubuntu 24.04
+・Nginx 1.24.0
+・PostgreSQL16
+・Python3.12
+・Django 5.2
 
 5. インストールについて
 下記のURLを参照してください。
 https://vasyworks.yworks.net/index.php/install/
-
-6. DEMO環境
-VasyworksDB   http://vasyworks-db.yworks.net:/admin/  （ログインユーザ情報非公開）
-VasyworksMGR  http://vasyworks-mgr.yworks.net/        （ログインユーザ情報公開）
-VasyworksLIST  http://vasyworks-list.yworks.net/             （ログインユーザ情報公開）
-VasyworksAPI  http://vasyworks-api.yworks.net/             （ログイン不要）
-VasyworksSEARCH  http://vasyworks-search.yworks.net/        （ログインユーザ情報公開）

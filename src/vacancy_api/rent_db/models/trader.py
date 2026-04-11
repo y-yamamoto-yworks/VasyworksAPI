@@ -2,7 +2,7 @@
 System Name: Vasyworks
 Project Name: vacancy_mgr
 Encoding: UTF-8
-Copyright (C) 2020 Yasuhiro Yamamoto
+Copyright (C) 2020 - 2026 Yasuhiro Yamamoto
 """
 from django.db import models
 from django.utils import timezone

@@ -2,7 +2,7 @@
 System Name: Vasyworks
 Project Name: vacancy_api
 Encoding: UTF-8
-Copyright (C) 2020 Yasuhiro Yamamoto
+Copyright (C) 2020 - 2026 Yasuhiro Yamamoto
 """
 import os
 import re
@@ -44,7 +44,7 @@ class ImageHelper:
             color = (255, 255, 255)
 
             if sys.platform.startswith('win') or sys.platform.startswith('cygwin'):
-                font_path = "C:\\WINDOWS\Fonts\\MSGOTHIC.ttc"
+                font_path = "C:\\WINDOWS\\Fonts\\MSGOTHIC.ttc"
             elif sys.platform.startswith('darwin'):
                 font_path = "/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc"
             else:
@@ -58,7 +58,9 @@ class ImageHelper:
             fnt = ImageFont.truetype(font=font_path, size=font_size)
 
             # 透かし文字の横幅、縦幅を取得します。
-            textw, texth = draw.textsize(water_mark, font=fnt)
+            bbox = draw.textbbox((0, 0), water_mark, font=fnt)
+            textw = bbox[2] - bbox[0]
+            texth = bbox[3] - bbox[1]
 
             # 透かし文字を中央に入れます。
             draw.text(((img_base.width - textw) / 2, (img_base.height - texth) / 2), water_mark, font=fnt, fill=color + (opacity,))

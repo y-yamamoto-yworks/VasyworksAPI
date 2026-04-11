@@ -14,20 +14,13 @@ The source code of VasyworksAPI is copyrighted by Yasuhiro Yamamoto and can be u
 
 About the operating environment
 The development environment is as follows
-OS: Ubuntu 20.04
-Nginx 1.18.0
-PostgreSQL 12
-Python3.8 venv
-Django 3.2
+OS: Ubuntu 24.04
+Nginx 1.24.0
+PostgreSQL 16
+Python3.12
+Django 5.2
 
 5. about installation
 Please refer to the following URL.
 https://vasyworks.yworks.net/index.php/install/
-
-6. DEMO environment
-VasyworksDB http://vasyworks-db.yworks.net:/admin/ (Login user information is not disclosed)
-VasyworksMGR http://vasyworks-mgr.yworks.net/ (login user information is public)
-VasyworksLIST http://vasyworks-list.yworks.net/ (login user information is public)
-VasyworksAPI http://vasyworks-api.yworks.net/ (No login required)
-VasyworksSEARCH http://vasyworks-search.yworks.net/ (Login user information is public)
 
