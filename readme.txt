@@ -10,6 +10,9 @@ Vasyworks:無料で使えるオープンソースの賃貸空室情報システ�
 https://vasyworks.yworks.net
 --
 
+動作の確認ができるDockerのテスト環境もご用意しています。
+https://github.com/y-yamamoto-yworks/Vasyworks-Docker
+
 2.VasyworksAPI（空室情報APIプロジェクト）について
 VasyworksAPIはVasyworksの空室情報を自社サイトなどに公開するためのRESTful APIのプロジェクトです。VasyworksDBで構築されたデータベースおよびVasyworksMGRで登録された空室情報データを利用します。VasyworksAPIを利用する際には、VasyworksMGRで登録された会社情報のAPIキーが必要になります。
 
