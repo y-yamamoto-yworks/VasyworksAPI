@@ -44,11 +44,11 @@ class ImageHelper:
             color = (255, 255, 255)
 
             if sys.platform.startswith('win') or sys.platform.startswith('cygwin'):
-                font_path = "C:\\WINDOWS\\Fonts\\MSGOTHIC.ttc"
+                font_path = settings.WINDOWS_FONT_PATH
             elif sys.platform.startswith('darwin'):
-                font_path = "/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc"
+                font_path = settings.MAC_FONT_PATH
             else:
-                font_path = "/usr/share/fonts/ipa-gothic/ipag.ttf"
+                font_path = settings.UNIX_FONT_PATH
 
             # テキストを描画する画像オブジェクトを作成します。
             txt = Image.new('RGBA', img_base.size, (255, 255, 255, 0))
