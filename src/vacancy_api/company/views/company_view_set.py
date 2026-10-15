@@ -9,6 +9,7 @@ import django_filters
 from django.conf import settings
 from django.shortcuts import render
 from rest_framework import viewsets, filters
+from rest_framework.exceptions import PermissionDenied
 from django.db.models import Q
 from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_str, escape_uri_path
@@ -23,7 +24,7 @@ class CompanyViewSet(viewsets.ReadOnlyModelViewSet):
     def retrieve(self, request, *args, **kwargs):
         key = kwargs.get('key')
         if not ApiHelper.check_key(key):
-            raise Exception
+            raise PermissionDenied("Permission denied")
 
         conditions = Q(pk=settings.COMPANY_ID)
         self.queryset = Company.objects.filter(conditions)

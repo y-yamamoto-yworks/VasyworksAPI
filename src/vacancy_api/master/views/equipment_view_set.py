@@ -8,6 +8,7 @@ import urllib.parse
 import django_filters
 from django.shortcuts import render
 from rest_framework import viewsets, filters
+from rest_framework.exceptions import PermissionDenied
 from django.db.models import Q
 from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_str, escape_uri_path
@@ -25,7 +26,7 @@ class EquipmentViewSet(viewsets.ReadOnlyModelViewSet):
     def list(self, request, *args, **kwargs):
         key = kwargs.get('key')
         if not ApiHelper.check_key(key):
-            raise Exception
+            raise PermissionDenied("Permission denied")
 
         self.queryset = Equipment.objects.filter(is_stopped=False).order_by('priority', 'category__priority')
         self.serializer_class = EquipmentSerializer
