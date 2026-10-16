@@ -9,8 +9,15 @@ https://vasyworks.yworks.net
 2. About VasyworksAPI (Vacancy Information API Project)
 VasyworksAPI is a RESTful API project for publishing Vasyworks' vacancy information to your own website, etc. It uses the database built with VasyworksDB and the vacancy information data registered with VasyworksMGR. When you use VasyworksAPI, you need the API key of the company information registered in VasyworksMGR.
 
-3. About the license of VasyworksAPI
-The source code of VasyworksAPI is copyrighted by Yasuhiro Yamamoto and can be used under the license conditions of AGLPv3.
+3. About the License
+The source code of this software is copyrighted by Yasuhiro Yamamoto and can be used under the license conditions of AGPLv3 with Additional Permission (Section 7).
+
+* Self Operations & Information Delivery (Exemption Applied):
+  If you host and operate this system for your own operations/activities or to deliver information/services to your end-users, you are not required to disclose your source code under Section 13 of AGPLv3.
+* Hosting / Managed Services (AGPLv3 Applies):
+  Providing this program itself as a managed service, SaaS, or hosted platform to third parties remains strictly subject to the full copyleft obligations of AGPLv3.
+
+For the exact terms and legal text, please refer to the LICENSE file.
 
 About the operating environment
 The development environment is as follows

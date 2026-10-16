@@ -659,3 +659,40 @@ specific requirements.
 if any, to sign a "copyright disclaimer" for the program, if necessary.
 For more information on this, and how to apply and follow the GNU AGPL, see
 <https://www.gnu.org/licenses/>.
+
+==============================================================================
+Additional Permission under GNU AGPL version 3 section 7
+(GNU AGPLv3 第7条に基づく追加的許可)
+==============================================================================
+
+Copyright (C) 2026 Yasuhiro Yamamoto
+
+As a special exception to Section 13 of the GNU Affero General Public License
+version 3, the copyright holders of this work grant permission to convey or
+run this Program without the obligation to provide the Corresponding Source
+under Section 13, solely under the following condition:
+
+- The operator of this Program runs and hosts it for the purpose of their own
+  operations, publication, or providing information/services to their end
+  users, provided that they do not offer this Program itself (or substantially
+  identical hosting, SaaS, PaaS, or managed execution services) as a service
+  to third parties.
+
+Any other use, including the hosting or offering of the Program itself as a
+managed platform/service to third parties, remains subject to all terms and
+conditions of GNU AGPLv3.
+
+【日本語参考訳（法的効力は上記英文を優先）】
+GNU Affero General Public License version 3 第13条に対する特別例外として、
+本著作物の著作権者は、以下の条件を満たす場合に限り、第13条に基づく
+対応ソースコードの提供義務を負うことなく、本プログラムを実行または伝達することを許可します。
+
+- 本プログラムの運用者が、自己の業務・活動、情報発信、または自己のエンドユーザーに
+  対する情報・サービス提供の目的で本プログラムを運用・ホスティングする場合。
+  ただし、本プログラム自体（または実質的に同等なホスティング、SaaS、PaaS、マネージド
+  サービス）を第三者向けのサービスとして提供・再販する行為は対象外とします。
+
+第三者へのマネージドサービスやプラットフォームとしての提供など、それ以外の利用については
+AGPLv3の全条項が適用されます。
+==============================================================================
+
