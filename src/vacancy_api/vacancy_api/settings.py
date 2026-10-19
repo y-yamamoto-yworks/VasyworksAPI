@@ -6,6 +6,7 @@ Copyright (C) 2020 - 2026 Yasuhiro Yamamoto
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -175,6 +176,10 @@ REST_FRAMEWORK = {
         'anon': '120/minute',
     },
 }
+# REST Framework テスト実行時
+if 'test' in sys.argv:
+    REST_FRAMEWORK['DEFAULT_THROTTLE_CLASSES'] = []
+    REST_FRAMEWORK['DEFAULT_THROTTLE_RATES'] = {}
 
 
 # Default primary key field type
