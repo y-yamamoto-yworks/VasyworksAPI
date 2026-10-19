@@ -90,6 +90,11 @@ DATABASES = {
 }
 
 
+# Cookie secure settings（本番HTTPS運用時にコメントアウトを解除）
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+
+
 # CSRF settings
 CSRF_TRUSTED_ORIGINS = [
     # 公開用
