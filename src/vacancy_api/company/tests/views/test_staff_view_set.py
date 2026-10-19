@@ -24,11 +24,8 @@ class StaffViewSetTest(TestCase):
     def test_get_view_set(self):
         url = reverse(
             'company_staffs',
-            args=[
-                self.company.api_key,
-            ],
         )
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         staff_list = response.data['list']
         self.assertEqual(staff_list[0]['full_name'], '管理 太郎')
@@ -37,11 +34,13 @@ class StaffViewSetTest(TestCase):
         url = reverse(
             'company_staffs',
             args=[
-                self.company.api_key,
                 2,      # 賃貸管理部
             ],
         )
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         staff_list = response.data['list']
         self.assertEqual(staff_list[0]['full_name'], '管理 太郎')
+
+        response_invalid = self.client.get(url, HTTP_X_API_KEY='AABBCCDDEEFF')
+        self.assertEqual(response_invalid.status_code, 403)

@@ -25,25 +25,22 @@ class VacancyRoomViewSetTest(TestCase):
     def test_get_view_set(self):
         url = reverse(
             'data_link_vacancy_rooms',
-            args=[
-                self.company.api_key,
-            ],
         )
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         building_list = response.data['list']
         self.assertEqual(building_list[0]['room_no'], '101')
         self.assertEqual(building_list[0]['building']['building_name'], 'サンプルマンション')
 
+        response_invalid = self.client.get(url, HTTP_X_API_KEY='AABBCCDDEEFF')
+        self.assertEqual(response_invalid.status_code, 403)
+
     def test_get_view_set_only_residential(self):
         url = reverse(
             'data_link_vacancy_rooms',
-            args=[
-                self.company.api_key,
-            ],
         )
         url += "?only_res=true"
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         building_list = response.data['list']
         self.assertEqual(building_list[0]['room_no'], '101')
@@ -52,12 +49,9 @@ class VacancyRoomViewSetTest(TestCase):
     def test_get_view_set_only_no_residential(self):
         url = reverse(
             'data_link_vacancy_rooms',
-            args=[
-                self.company.api_key,
-            ],
         )
         url += "?only_no_res=true"
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         building_list = response.data['list']
         self.assertEqual(building_list[0]['room_no'], 'TENANT01')

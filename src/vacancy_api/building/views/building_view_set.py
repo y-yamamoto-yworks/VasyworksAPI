@@ -28,8 +28,7 @@ class BuildingViewSet(viewsets.ReadOnlyModelViewSet):
         super().__init__(**kwargs)
 
     def retrieve(self, request, *args, **kwargs):
-        key = kwargs.get('key')
-        if not ApiHelper.check_key(key):
+        if not ApiHelper.check_key(request):
             raise PermissionDenied("Permission denied")
 
         param = request.GET.get('no_lmt', None)

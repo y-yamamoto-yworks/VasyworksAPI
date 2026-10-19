@@ -8,8 +8,8 @@ from django.urls import include, path
 from .views import *
 
 urlpatterns = [
-    path('<str:key>', CompanyViewSet.as_view({'get': 'retrieve'}), name='company_detail'),
-    path('departments/<str:key>', DepartmentViewSet.as_view({'get': 'list'}), name='company_departments'),
-    path('staffs/<str:key>', StaffViewSet.as_view({'get': 'list'}), name='company_staffs'),
-    path('staffs/<str:key>/<int:department_id>', StaffViewSet.as_view({'get': 'list'}), name='company_staffs'),
+    path('departments/', DepartmentViewSet.as_view({'get': 'list'}), name='company_departments'),
+    path('staffs/', StaffViewSet.as_view({'get': 'list'}), name='company_staffs'),
+    path('staffs/<int:department_id>', StaffViewSet.as_view({'get': 'list'}), name='company_staffs'),
+    path('', CompanyViewSet.as_view({'get': 'retrieve'}), name='company_detail'),
 ]

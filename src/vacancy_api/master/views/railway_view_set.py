@@ -24,8 +24,7 @@ class RailwayViewSet(viewsets.ReadOnlyModelViewSet):
     pagination_class = MasterListApiPagination
 
     def list(self, request, *args, **kwargs):
-        key = kwargs.get('key')
-        if not ApiHelper.check_key(key):
+        if not ApiHelper.check_key(request):
             raise PermissionDenied("Permission denied")
 
         self.queryset = Railway.objects.filter(is_stopped=False, is_trading=True).order_by('priority')

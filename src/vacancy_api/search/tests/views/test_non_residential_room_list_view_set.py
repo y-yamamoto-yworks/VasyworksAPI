@@ -25,25 +25,22 @@ class NonResidentialRoomListViewSetTest(TestCase):
     def test_get_view_set(self):
         url = reverse(
             'search_non_residential_rooms',
-            args=[
-                self.company.api_key,
-            ],
         )
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         building_list = response.data['list']
         self.assertEqual(building_list[0]['building_name'], '表示項目確認用マンション')
         self.assertEqual(building_list[0]['room_no'], 'TENANT01')
 
+        response_invalid = self.client.get(url, HTTP_X_API_KEY='AABBCCDDEEFF')
+        self.assertEqual(response_invalid.status_code, 403)
+
     def test_get_view_set_with_city(self):
         url = reverse(
             'search_non_residential_rooms',
-            args=[
-                self.company.api_key,
-            ],
         )
         url += "?city=26105"      # 京都市東山区
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         building_list = response.data['list']
         self.assertEqual(building_list[0]['building_name'], 'サンプルテナントビル01')
@@ -52,12 +49,9 @@ class NonResidentialRoomListViewSetTest(TestCase):
     def test_get_view_set_with_area(self):
         url = reverse(
             'search_non_residential_rooms',
-            args=[
-                self.company.api_key,
-            ],
         )
         url += "?area=26051"      # 祇園
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         building_list = response.data['list']
         self.assertEqual(building_list[0]['building_name'], 'サンプルテナントビル01')

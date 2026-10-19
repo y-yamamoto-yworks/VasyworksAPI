@@ -8,5 +8,5 @@ from django.urls import include, path
 from .views import *
 
 urlpatterns = [
-    path('<str:key>', DocumentFileViewSet.as_view({'get': 'list'}), name='documents_index'),
+    path('', DocumentFileViewSet.as_view({'get': 'list'}), name='documents_index'),
 ]

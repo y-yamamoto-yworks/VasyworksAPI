@@ -27,11 +27,14 @@ class BuildingViewSetTest(TestCase):
         url = reverse(
             'building_detail',
             args=[
-                self.company.api_key,
                 self.building.oid,
             ],
         )
-        response = self.client.get(url)
+
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         building = response.data
         self.assertEqual(building['building_name'], self.building.building_name)
+
+        response_invalid = self.client.get(url, HTTP_X_API_KEY='AABBCCDDEEFF')
+        self.assertEqual(response_invalid.status_code, 403)

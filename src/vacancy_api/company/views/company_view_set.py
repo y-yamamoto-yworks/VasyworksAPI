@@ -22,8 +22,7 @@ from company.serializers import CompanySerializer
 class CompanyViewSet(viewsets.ReadOnlyModelViewSet):
     """会社"""
     def retrieve(self, request, *args, **kwargs):
-        key = kwargs.get('key')
-        if not ApiHelper.check_key(key):
+        if not ApiHelper.check_key(request):
             raise PermissionDenied("Permission denied")
 
         conditions = Q(pk=settings.COMPANY_ID)

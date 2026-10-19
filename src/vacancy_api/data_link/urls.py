@@ -8,5 +8,5 @@ from django.urls import include, path
 from .views import *
 
 urlpatterns = [
-    path('vacancy_rooms/<str:key>', VacancyRoomViewSet.as_view({'get': 'list'}), name='data_link_vacancy_rooms'),
+    path('vacancy_rooms/', VacancyRoomViewSet.as_view({'get': 'list'}), name='data_link_vacancy_rooms'),
 ]

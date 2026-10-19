@@ -25,24 +25,21 @@ class GarageListViewSetTest(TestCase):
     def test_get_view_set(self):
         url = reverse(
             'search_garages',
-            args=[
-                self.company.api_key,
-            ],
         )
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         building_list = response.data['list']
         self.assertEqual(building_list[0]['building_name'], 'サンプルガレージ01')
 
+        response_invalid = self.client.get(url, HTTP_X_API_KEY='AABBCCDDEEFF')
+        self.assertEqual(response_invalid.status_code, 403)
+
     def test_get_view_set_with_city(self):
         url = reverse(
             'search_garages',
-            args=[
-                self.company.api_key,
-            ],
         )
         url += "?city=26106"      # 京都市下京区
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         building_list = response.data['list']
         self.assertEqual(building_list[0]['building_name'], 'サンプルガレージ01')
@@ -50,12 +47,9 @@ class GarageListViewSetTest(TestCase):
     def test_get_view_set_with_area(self):
         url = reverse(
             'search_garages',
-            args=[
-                self.company.api_key,
-            ],
         )
         url += "?area=26053"      # 京阪五条
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         building_list = response.data['list']
         self.assertEqual(building_list[0]['building_name'], 'サンプルガレージ01')

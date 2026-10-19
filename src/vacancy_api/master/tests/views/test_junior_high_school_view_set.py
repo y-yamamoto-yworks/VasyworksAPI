@@ -25,11 +25,13 @@ class JuniorHighSchoolViewSetTest(TestCase):
         url = reverse(
             'master_junior_high_schools',
             args=[
-                self.company.api_key,
                 '26101',  # 京都市北区
             ],
         )
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         data_list = response.data['list']
         self.assertEqual(data_list[0]['name'], '旭丘')
+
+        response_invalid = self.client.get(url, HTTP_X_API_KEY='AABBCCDDEEFF')
+        self.assertEqual(response_invalid.status_code, 403)

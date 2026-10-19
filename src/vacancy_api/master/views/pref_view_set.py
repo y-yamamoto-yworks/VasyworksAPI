@@ -24,8 +24,7 @@ class PrefViewSet(viewsets.ReadOnlyModelViewSet):
     pagination_class = MasterListApiPagination
 
     def list(self, request, *args, **kwargs):
-        key = kwargs.get('key')
-        if not ApiHelper.check_key(key):
+        if not ApiHelper.check_key(request):
             raise PermissionDenied("Permission denied")
 
         self.queryset = Pref.objects.filter(is_trading_area=True).order_by('priority')

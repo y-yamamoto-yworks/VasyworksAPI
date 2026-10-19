@@ -27,12 +27,14 @@ class RoomViewSetTest(TestCase):
         url = reverse(
             'room_detail',
             args=[
-                self.company.api_key,
                 self.room.oid,
             ],
         )
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         room = response.data
         self.assertEqual(room['room_no'], self.room.room_no)
         self.assertEqual(room['building']['building_name'], self.room.building.building_name)
+
+        response_invalid = self.client.get(url, HTTP_X_API_KEY='AABBCCDDEEFF')
+        self.assertEqual(response_invalid.status_code, 403)

@@ -24,11 +24,11 @@ class DocumentFileViewSetTest(TestCase):
     def test_get_view_set(self):
         url = reverse(
             'documents_index',
-            args=[
-                self.company.api_key,
-            ],
         )
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         document_file_list = response.data['list']
         self.assertEqual(document_file_list[0]['file_title'], '書類サンプル3')
+
+        response_invalid = self.client.get(url, HTTP_X_API_KEY='AABBCCDDEEFF')
+        self.assertEqual(response_invalid.status_code, 403)

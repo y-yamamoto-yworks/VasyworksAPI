@@ -243,7 +243,7 @@ class SearchConditions(object):
         ans = ' INNER JOIN ('
         ans += 'SELECT room_equipment.{0}'.format(target_field)
         ans += ' FROM room_equipment'
-        ans += ' INNER JOIN room ON room_equipment.room_id = room.id'
+        ans += ' INNER JOIN room ON room_equipment.room_id = room.id AND room_equipment.is_deleted = FALSE'
         ans += ' INNER JOIN room_status ON room.room_status_id = room_status.id AND room_status.for_rent = TRUE'
 
         ans += ' INNER JOIN rental_type ON room.rental_type_id = rental_type.id'

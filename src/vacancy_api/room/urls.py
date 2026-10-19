@@ -8,5 +8,5 @@ from django.urls import include, path
 from .views import *
 
 urlpatterns = [
-    path('<str:key>/<str:oid>', RoomViewSet.as_view({'get': 'retrieve'}), name='room_detail'),
+    path('<str:oid>', RoomViewSet.as_view({'get': 'retrieve'}), name='room_detail'),
 ]

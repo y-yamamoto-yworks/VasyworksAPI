@@ -24,11 +24,11 @@ class CompanyViewSetTest(TestCase):
     def test_get_view_set(self):
         url = reverse(
             'company_detail',
-            args=[
-                self.company.api_key,
-            ],
         )
-        response = self.client.get(url)
+        response = self.client.get(url, HTTP_X_API_KEY=self.company.api_key)
         self.assertEqual(response.status_code, 200)
         company = response.data
         self.assertEqual(company['company_name'], 'ワイワークス不動産')
+
+        response_invalid = self.client.get(url, HTTP_X_API_KEY='AABBCCDDEEFF')
+        self.assertEqual(response_invalid.status_code, 403)

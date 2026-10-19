@@ -24,8 +24,7 @@ class LandmarkViewSet(viewsets.ReadOnlyModelViewSet):
     pagination_class = MasterListApiPagination
 
     def list(self, request, *args, **kwargs):
-        key = kwargs.get('key')
-        if not ApiHelper.check_key(key):
+        if not ApiHelper.check_key(request):
             raise PermissionDenied("Permission denied")
 
         landmark_type_id = kwargs.get('landmark_type_id')
