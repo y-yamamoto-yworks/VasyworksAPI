@@ -18,8 +18,8 @@ class CacheFileHelper:
     """キャッシュファイルヘルパークラス"""
     @staticmethod
     def _get_safe_path(base_dir, *paths):
-        real_base = os.path.realpath(base_dir)
-        target_path = os.path.realpath(os.path.join(real_base, *paths))
+        real_base = os.path.abspath(base_dir)
+        target_path = os.path.abspath(os.path.join(real_base, *paths))
 
         if os.path.commonpath([real_base, target_path]) != real_base:
             raise SuspiciousFileOperation("Invalid file path (Path Traversal detected).")
