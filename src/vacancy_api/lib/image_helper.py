@@ -9,18 +9,27 @@ import re
 import sys
 import qrcode
 from django.conf import settings
+from django.core.exceptions import SuspiciousFileOperation
 from PIL import Image, ImageDraw, ImageFont
 
 
 class ImageHelper:
     """ 画像ヘルパークラス"""
+    @staticmethod
+    def _get_safe_path(base_dir, *paths):
+        real_base = os.path.realpath(base_dir)
+        target_path = os.path.realpath(os.path.join(real_base, *paths))
+
+        if os.path.commonpath([real_base, target_path]) != real_base:
+            raise SuspiciousFileOperation("Invalid file path (Path Traversal detected).")
+
+        return target_path
 
     @staticmethod
     def cache_image(src_path, cache_path, water_mark, max_size):
         """ 画像をキャッシュ """
-
-        secure_src_path = re.sub(r'\.+' + repr(os.sep), '', src_path)
-        secure_cache_path = re.sub(r'\.+' + repr(os.sep), '', cache_path)
+        secure_src_path = ImageHelper._get_safe_path(settings.MEDIA_ROOT, src_path)
+        secure_cache_path = ImageHelper._get_safe_path(settings.CACHE_FILE_DIR, cache_path)
 
         img = Image.open(secure_src_path)
         w, h = img.size
@@ -74,7 +83,8 @@ class ImageHelper:
     @staticmethod
     def make_qrcode(data, file_path, force=False):
         """QRコード画像の作成"""
-        secure_file_path = re.sub(r'\.+' + repr(os.sep), '', file_path)
+        secure_file_path = ImageHelper._get_safe_path(settings.MEDIA_ROOT, file_path)
+
         if os.path.exists(secure_file_path):
             if force:
                 os.remove(secure_file_path)
